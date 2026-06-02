@@ -1,163 +1,307 @@
-# Copilot Configuration
+# Agentic Dev
 
-This repository contains custom instructions, skills, agents, and prompts to enhance GitHub Copilot's capabilities for web development, technical documentation, and autonomous task execution.
-
----
-
-## 📚 Instructions
-
-Custom instruction sets for specific technology stacks and configurations:
-
-### Frontend Frameworks & Libraries
-
-- **[nextjs+react+typescript.md](instructions/nextjs+react+typescript.md)** - Next.js 14+ with React and TypeScript setup and best practices
-- **[nextjs-14-tailwind-seo-setup.md](instructions/nextjs-14-tailwind-seo-setup.md)** - Next.js 14 with Tailwind CSS and SEO optimization
-- **[typescript+react+shadcn-ui.md](instructions/typescript+react+shadcn-ui.md)** - React with TypeScript and shadcn/ui component library
-- **[react+js+tailwind.instructions.md](instructions/react+js+tailwind.instructions.md)** - React with JavaScript and Tailwind CSS
-
-### UI & Styling
-
-- **[daisyui.instructions.md](instructions/daisyui.instructions.md)** - DaisyUI component framework setup and usage
-
-### Backend & Deployment
-
-- **[nextjs+vercel+supabase.md](instructions/nextjs+vercel+supabase.md)** - Next.js with Vercel deployment and Supabase backend
+AI agent configuration — custom instructions, skills, agents, and prompts for agentic development workflows, technical documentation, and autonomous task execution.
 
 ---
 
-## 🛠️ Skills
+## Quick Start
 
-Enhanced capabilities for specialized development tasks:
+| Step | Action |
+| ---- | ------ |
+| 1    | `git clone https://github.com/yourusername/agentic-dev.git && cd agentic-dev` |
+| 2    | Run `./install.sh` (macOS/Linux) or `install.ps1` (Windows) |
+| 3    | Select your tools from the interactive menu |
+| 4    | Restart your IDE — skills and agents load automatically |
 
-### Web Design & Testing
+### Headless (CI / automation)
 
-- **web-design-reviewer** - Visual inspection and fixing of website design issues (responsive design, accessibility, visual consistency, layout problems)
-- **webapp-testing** - Automated testing and debugging of web applications using Playwright (browser automation, screenshot capture, UI verification)
-
-### Development Tools & Documentation
-
-- **readme-generator** - Comprehensive README documentation generation
-- **webcoder** - Web development reference knowledge with documentation on:
-  - HTML/CSS/JavaScript fundamentals
-  - Web APIs and DOM manipulation
-  - HTTP networking and protocols
-  - Performance optimization
-  - Security and authentication
-  - Accessibility standards
-  - Development tools and frameworks
-
-### Programming Languages & Optimization
-
-- **cpp-programming-guidelines** - C++ development best practices and coding guidelines
-- **web-app-optimization** - Web application performance optimization techniques and strategies
-
----
-
-## 🤖 Agents
-
-Autonomous agents for specialized workflow automation:
-
-### UX/UI Design & E-commerce
-
-- **[se-ux-ui-designer.agent.md](agents/se-ux-ui-designer.agent.md)** - Senior UX/UI Designer agent for interface design and user experience
-- **[shopify-export.agent.md](agents/shopify-export.agent.md)** - Shopify data export and integration automation
-
-### AI Development Mode
-
-- **[architect.agent.md](agents/ai-development-mode/architect.agent.md)** - Software architecture and system design planning
-- **[clean-code.agent.md](agents/ai-development-mode/clean-code.agent.md)** - Code quality and clean code standards
-
----
-
-## 💬 Prompts
-
-Pre-defined prompts for task execution and generation:
-
-- **[task-execution-prompt.md](prompts/task-execution-prompt.md)** - Framework for executing complex development tasks
-- **[task-generation-prompt.md](prompts/task-generation-prompt.md)** - Framework for generating and planning new tasks
-
----
-
-## 📖 How to Use
-
-1. **Select an Instruction** - Choose the appropriate setup guide based on your tech stack
-2. **Activate Skills** - Skills automatically load when relevant to your request (e.g., "review website design" triggers web-design-reviewer)
-3. **Ask Copilot** - Reference these instructions/skills in your requests for more tailored responses
-
----
-
-## 🔗 Using Copilot Config Across Your Projects
-
-Reference and apply this copilot-config repository when working on other repositories for consistent AI assistance.
-
-### Setup Options
-
-#### Option 1: Clone Repository Alongside Projects
 ```bash
-git clone https://github.com/yourusername/copilot-config.git ../copilot-config
+./install.sh --tools copilot,opencode,claude-code
 ```
-
-#### Option 2: Project-Specific Settings
-Create `.vscode/settings.json` in your project:
-```json
-{
-  "copilot.instructions": [
-    "${workspaceFolder}/../copilot-config/instructions"
-  ]
-}
+```powershell
+install.ps1 -Tools copilot,opencode,claude-code
 ```
-
-#### Option 3: VS Code Multi-Root Workspace
-Create a `.code-workspace` file:
-```json
-{
-  "folders": [
-    {
-      "path": ".",
-      "name": "Main Project"
-    },
-    {
-      "path": "../copilot-config",
-      "name": "Copilot Config"
-    }
-  ], Relevant Agent |
-|------|----------------------|---|---|
-| Build a Next.js + React + TS app | nextjs+react+typescript.md | webcoder | architect |
-| Design a responsive UI | typescript+react+shadcn-ui.md | web-design-reviewer | se-ux-ui-designer |
-| Test web application UI | react+js+tailwind.instructions.md | webapp-testing | clean-code |
-| Optimize SEO on Next.js | nextjs-14-tailwind-seo-setup.md | webcoder | architect |
-| Deploy to Vercel with backend | nextjs+vercel+supabase.md | readme-generator | architect |
-| Component library setup | daisyui.instructions.md | web-design-reviewer | se-ux-ui-designer |
-| Optimize web app performance | N/A | web-app-optimization | architect |
-| C++ development | N/A | cpp-programming-guidelines | clean-code |
-| Shopify integration | N/A | N/A | shopify-export
-
-#### Option 4: Global Copilot Configuration
-Edit `~/.vscode/settings.json` to apply globally:
-```json
-{
-  "copilot.instructions": [
-    "${userHome}/.copilot/instructions"
-  ]
-}
-```
-
-### Workflow
-
-1. Clone or symlink copilot-config alongside your projects
-2. Reference shared instructions in your project settings
-3. All projects automatically inherit consistent Copilot behavior
-4. Update copilot-config once, changes apply everywhere
 
 ---
 
-## 🎯 Quick Reference
+## Installation by Tool
 
-| Task | Relevant Instruction | Relevant Skill |
-|------|----------------------|----------------|
-| Build a Next.js + React + TS app | nextjs+react+typescript.md | webcoder |
-| Design a responsive UI | typescript+react+shadcn-ui.md | web-design-reviewer |
-| Test web application UI | react+js+tailwind.instructions.md | webapp-testing |
-| Optimize SEO on Next.js | nextjs-14-tailwind-seo-setup.md | webcoder |
-| Deploy to Vercel with backend | nextjs+vercel+supabase.md | readme-generator |
-| Component library setup | daisyui.instructions.md | web-design-reviewer |
+### GitHub Copilot (VS Code)
+
+Copilot reads from `~/.copilot/` and makes agents, instructions, prompts, and skills available in VS Code.
+
+**Option A: Install Script**
+
+| OS          | Command                                                  |
+| ----------- | -------------------------------------------------------- |
+| Windows     | `powershell -ExecutionPolicy Bypass -File install.ps1` |
+| macOS/Linux | `chmod +x install.sh && ./install.sh`                  |
+
+**Option B: Manual**
+
+```bash
+mkdir -p ~/.copilot/{agents,instructions,prompts,skills}
+cp -r agentic-dev/agents/* ~/.copilot/agents/
+cp -r agentic-dev/instructions/* ~/.copilot/instructions/
+cp -r agentic-dev/prompts/* ~/.copilot/prompts/
+cp -r agentic-dev/skills/* ~/.copilot/skills/
+```
+
+**Windows (PowerShell):**
+
+```powershell
+$dirs = @('agents','instructions','prompts','skills')
+foreach ($d in $dirs) { New-Item -Path "$env:USERPROFILE\.copilot\$d" -Type Directory -Force | Out-Null }
+Copy-Item -Path "agentic-dev\agents\*" -Destination "$env:USERPROFILE\.copilot\agents\" -Recurse -Force
+Copy-Item -Path "agentic-dev\instructions\*" -Destination "$env:USERPROFILE\.copilot\instructions\" -Recurse -Force
+Copy-Item -Path "agentic-dev\prompts\*" -Destination "$env:USERPROFILE\.copilot\prompts\" -Recurse -Force
+Copy-Item -Path "agentic-dev\skills\*" -Destination "$env:USERPROFILE\.copilot\skills\" -Recurse -Force
+```
+
+**Project-level config** — `.vscode/settings.json`:
+
+```jsonc
+{
+  "copilot.instructions": [
+    "${workspaceFolder}/agentic-dev/instructions"
+  ]
+}
+```
+
+---
+
+### OpenCode
+
+OpenCode reads from `~/.config/opencode/opencode.json`. Skills load from `~/.agents/skills/`.
+
+```bash
+# Symlink skills into agentic-dev
+ln -sf "$PWD/agentic-dev/skills"/* ~/.agents/skills/
+```
+
+**Windows (PowerShell):**
+
+```powershell
+$skillsDir = "$env:USERPROFILE\.agents\skills"
+New-Item -Path $skillsDir -Type Directory -Force | Out-Null
+Get-ChildItem "agentic-dev\skills" -Directory | ForEach-Object {
+    $target = Join-Path $skillsDir $_.Name
+    if (-not (Test-Path $target)) {
+        New-Item -Path $target -ItemType Junction -Target $_.FullName
+    }
+}
+```
+
+Or use `opencode sync` to link this repo.
+
+---
+
+### Cursor
+
+```bash
+# Project-level symlinks
+ln -sf "$PWD/agentic-dev/instructions" .cursor/instructions
+ln -sf "$PWD/agentic-dev/agents" .cursor/agents
+
+# Global install
+cp -r agentic-dev/instructions/* ~/.cursor/instructions/
+cp -r agentic-dev/agents/* ~/.cursor/agents/
+```
+
+---
+
+### Windsurf (Codeium)
+
+```bash
+# Global
+cp -r agentic-dev/instructions/* ~/.windsurf/instructions/
+# Project-level
+cp -r agentic-dev/instructions/* .windsurf/instructions/
+```
+
+---
+
+### Claude Code
+
+Claude Code reads skills from `~/.claude/skills/`. Skills become available when you describe tasks that match them.
+
+```bash
+# Via install script (recommended)
+./install.sh --tools claude-code
+
+# Manual
+cp -r agentic-dev/skills/* ~/.claude/skills/
+```
+
+---
+
+### Antigravity
+
+Shares skills with OpenCode via `~/.agents/skills/`:
+
+```bash
+ln -sf "$PWD/agentic-dev/skills"/* ~/.agents/skills/
+```
+
+---
+
+### Cline (VS Code Extension)
+
+| Scope   | File                                                      |
+| ------- | --------------------------------------------------------- |
+| Project | `.clinerules` or `.github/copilot-instructions.md`    |
+| Global  | VS Code `settings.json` → `cline.customInstructions` |
+
+```bash
+# Project-level
+cp agentic-dev/instructions/typescript+react+shadcn-ui.md .clinerules
+```
+
+---
+
+### Zed
+
+| Scope   | Path                            |
+| ------- | ------------------------------- |
+| Global  | `~/.config/zed/settings.json` |
+| Project | `.zed/settings.json`          |
+
+```bash
+cp -r agentic-dev/instructions/* ~/.config/zed/instructions/
+```
+
+---
+
+## What Gets Installed
+
+### Instructions
+
+| Category   | File                                  | Stack                               |
+| ---------- | ------------------------------------- | ----------------------------------- |
+| Frontend   | `nextjs+react+typescript.md`        | Next.js 14+ • React • TypeScript  |
+|            | `nextjs-14-tailwind-seo-setup.md`   | Next.js 14 • Tailwind CSS • SEO   |
+|            | `typescript+react+shadcn-ui.md`     | React • TypeScript • shadcn/ui    |
+|            | `react+js+tailwind.instructions.md` | React • JavaScript • Tailwind CSS |
+| UI/Styling | `daisyui.instructions.md`           | daisyUI 5 component library         |
+| Fullstack  | `nextjs+vercel+supabase.md`         | Next.js • Vercel • Supabase       |
+
+### Skills
+
+| Domain                 | Skill                          | Purpose                                                              |
+| ---------------------- | ------------------------------ | -------------------------------------------------------------------- |
+| **Humanization** | `roviczzz-humanize`          | Academic text humanization — strips AI tells, enforces active voice |
+|                        | `anti-slop`                  | Detect & eliminate generic AI patterns in text, code, design         |
+|                        | `hoomanize`                  | Remove AI writing signs: inflated symbolism, passive voice           |
+|                        | `stop-slop`                  | Eliminate predictable AI writing patterns from prose                 |
+|                        | `humanizer`                  | Two-pass edit + audit for natural tone                               |
+|                        | `caveman`                    | Ultra-compressed token-efficient communication                       |
+| **Frontend**     | `frontend-developer`         | React components, responsive layouts, modern architecture            |
+|                        | `frontend-design`            | Production-grade interfaces, avoid generic aesthetics                |
+|                        | `web-design-reviewer`        | Visual inspection for responsive, accessible, consistent design      |
+|                        | `mobile-design`              | Mobile-first, touch-first, platform-respectful patterns              |
+|                        | `scroll-experience`          | Narrative scrolling with delight moments                             |
+|                        | `form-cro`                   | Conversion rate optimization for forms                               |
+|                        | `ui-ux-pro-max`              | Color palettes, typography, UX review, component design              |
+|                        | `canvas-design`              | Design philosophies expressed visually (MD, PDF, PNG)                |
+| **React**        | `react-best-practices`       | 12 performance rules across 6 categories                             |
+|                        | `react-patterns`             | Hooks, composition, performance, TypeScript patterns                 |
+| **Next.js**      | `nextjs-best-practices`      | App Router, Server Components, data fetching                         |
+| **Tailwind**     | `tailwind-patterns`          | CSS-first config, container queries, design tokens                   |
+| **Backend**      | `backend-dev-guidelines`     | Node.js/Express/TypeScript/microservices                             |
+|                        | `api-patterns`               | REST vs GraphQL vs tRPC, auth, rate-limiting                         |
+|                        | `stripe-integration`         | Checkouts, subscriptions, webhooks, PCI                              |
+| **Database**     | `database-design`            | Schema, indexing, ORM selection, serverless                          |
+| **3D**           | `3d-web-experience`          | Three.js, R3F, WebGL, Spline workflows                               |
+| **C++**          | `cpp-programming-guidelines` | Modern C++, Doxygen, ODR compliance                                  |
+| **Testing**      | `webapp-testing`             | Playwright automation, screenshots, UI verification                  |
+|                        | `systematic-debugging`       | Root cause analysis before fixes                                     |
+| **Fullstack**    | `senior-fullstack`           | Modern fullstack toolkit + best practices                            |
+| **Optimization** | `web-app-optimization`       | SSR, SSG, compile-time, minimal JS                                   |
+| **SEO**          | `seo-audit`                  | Crawlability, indexation, rankings diagnostics                       |
+| **Planning**     | `concise-planning`           | Atomic checklists for coding tasks                                   |
+| **Meta**         | `find-skills`                | Discover & install new agent skills                                  |
+
+### Agents
+
+| Agent                 | File                                        | Role                                              |
+| --------------------- | ------------------------------------------- | ------------------------------------------------- |
+| Senior UX/UI Designer | `se-ux-ui-designer.agent.md`              | Jobs-to-be-done, journeys, personas, UX research  |
+| Shopify Expert        | `shopify-export.agent.md`                 | Liquid theming, Admin/Storefront APIs, metafields |
+| Architect             | `ai-development-mode/architect.agent.md`  | Domain-driven design, ADRs, system architecture   |
+| Clean Code            | `ai-development-mode/clean-code.agent.md` | Code quality, naming, DRY, test coverage          |
+
+### Prompts
+
+| Prompt                        | Purpose                                |
+| ----------------------------- | -------------------------------------- |
+| `task-execution-prompt.md`  | Execute complex dev tasks step by step |
+| `task-generation-prompt.md` | Generate actionable tasks from PRDs    |
+
+---
+
+## Task-to-Resource Quick Reference
+
+| Task                           | Instruction                           | Skill                      | Agent             |
+| ------------------------------ | ------------------------------------- | -------------------------- | ----------------- |
+| Build Next.js + React + TS app | `nextjs+react+typescript.md`        | webcoder                   | architect         |
+| Design responsive UI           | `typescript+react+shadcn-ui.md`     | web-design-reviewer        | se-ux-ui-designer |
+| Test web app UI                | `react+js+tailwind.instructions.md` | webapp-testing             | clean-code        |
+| Optimize Next.js SEO           | `nextjs-14-tailwind-seo-setup.md`   | seo-audit                  | architect         |
+| Deploy Vercel + Supabase       | `nextjs+vercel+supabase.md`         | senior-fullstack           | architect         |
+| Setup component library        | `daisyui.instructions.md`           | frontend-developer         | se-ux-ui-designer |
+| Humanize AI-generated text     | —                                    | roviczzz-humanize          | —                |
+| Strip slop from code           | —                                    | anti-slop                  | —                |
+| Optimize web app perf          | —                                    | web-app-optimization       | architect         |
+| C++ development                | —                                    | cpp-programming-guidelines | clean-code        |
+| Shopify integration            | —                                    | —                         | shopify-export    |
+| Debug systematically           | —                                    | systematic-debugging       | —                |
+
+---
+
+## Verify Installation
+
+| Tool              | Check                                         |
+| ----------------- | --------------------------------------------- |
+| Copilot (VS Code) | Open Copilot chat — check `/agents` list   |
+| OpenCode          | Skills load automatically on matching prompts |
+| Cursor            | `@Agent` — verify rules are available      |
+| Windsurf          | Cascade panel — confirm instructions visible |
+
+**CLI check:**
+
+```bash
+ls ~/.copilot/agents && ls ~/.copilot/instructions && ls ~/.copilot/prompts && ls ~/.copilot/skills
+```
+
+---
+
+## Troubleshooting
+
+| Issue                     | Fix                                                     |
+| ------------------------- | ------------------------------------------------------- |
+| Config not loading        | Restart the IDE / tool                                  |
+| No write permission       | Check `~/.copilot/` and target dir ownership          |
+| Execution policy (Win)    | `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` |
+| Permissions (macOS/Linux) | `chmod +x install.sh && ./install.sh`                 |
+| Skills not appearing      | Symlinks broken — re-run install for your tool         |
+
+---
+
+## Uninstallation
+
+| Tool              | Command                                                                                   |
+| ----------------- | ----------------------------------------------------------------------------------------- |
+| Copilot (VS Code) | `rm -rf ~/.copilot/agents ~/.copilot/instructions ~/.copilot/prompts ~/.copilot/skills` |
+| OpenCode          | `rm ~/.agents/skills/*` (remove symlinks)                                               |
+| Cursor            | `rm -rf ~/.cursor/instructions`                                                         |
+| Windsurf          | `rm -rf ~/.windsurf/instructions`                                                       |
+
+---
+
+## Support
+
+For issues, updates, or contributions, visit the [agentic-dev repository](https://github.com/roviczzz/agentic-dev).
+
+---
+
+**Last Updated:** June 3, 2026
